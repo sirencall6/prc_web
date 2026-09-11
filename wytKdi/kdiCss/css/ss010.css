@@ -1,0 +1,25 @@
+div.one {
+	background-color: #0000ff;
+	height: 100px;
+	width: 500px;
+}
+
+div.two {
+	background-color: #ff0000;
+}
+
+div.three {
+	background-color: #b7e718;
+}
+
+div.inline-block_01 {
+	display: inline-block;
+}
+
+div.inline-block_02 {
+	display: inline-block;
+}
+
+div.inline-block_03 {
+	display: inline-block;
+}

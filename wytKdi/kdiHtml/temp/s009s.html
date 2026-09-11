@@ -1,0 +1,44 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>データ受信テスト</title>
+<link href="../../basic.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<h1 align="center">データ受信フォーム(UTF-8)</h1>
+	<h3>受信した文字列の表示</h3>
+	<form name="receive">
+		<p>URLを使って受信したデータ</p>
+		<input name="textfield" type="text" size="100">
+		<p>上記データのデコード（decodeURI）</p>
+		<textarea name="textfield2" cols="100" rows="5"></textarea>
+	</form>
+	<script type="text/javascript">
+	<!--
+		//URLの？以降を取得
+		get_text = document.location.search;
+		get_text = get_text.substring(1, get_text.length);
+
+		//受信したデータをそのまま表示
+		document.receive.textfield.value = get_text;
+
+		//複数の項目がある場合は1つ目のデータ
+		//last_text = get_text.indexOf("&");
+		//if (last_text < 0) last_text = get_text.length;
+
+		//データの内容を取得
+		//get_text = get_text.substring(get_text.indexOf("=")+1,last_text);
+
+		//&を改行
+		get_text = get_text.split("&").join("\n");
+
+		//デコードして表示
+		document.receive.textfield2.value = decodeURI(get_text);
+	//-->
+	</script>
+	<p align="center" class="goBack">
+		<a href="javascript:self.close()">閉じる</a>
+	</p>
+</body>
+</html>

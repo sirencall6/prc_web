@@ -1,0 +1,15 @@
+p#texttext {
+	background-color: #ff0000;
+	margin: 10px;
+	<!--
+	行の高さを指定する
+	-->
+}
+
+input[type=text] {
+	background-color: #0000ff;
+	width: 25px;
+}
+<!--
+https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q1173981551
+-->

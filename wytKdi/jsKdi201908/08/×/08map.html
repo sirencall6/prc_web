@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script></script>
+</head>
+
+<body>
+	<div id="maps" style="height: 420px; width: 680px"></div>
+
+	<script src="//maps.googleapis.com/maps/api/js?key={}&callback=initMap"
+		async></script>
+	<script type="text/javascript" src="08map.js"></script>
+	<script>
+		function initMap() {
+			var mapPosition = {
+				lat : 35.170662,
+				lng : 136.923430
+			}
+			var mapArea = document.getElementById('maps');
+			var mapOptions = {
+				center : mapPosition,
+				zoom : 16,
+			};
+			var map = new google.maps.Map(mapArea, mapOptions);
+		}
+	</script>
+
+</body>
+</html>

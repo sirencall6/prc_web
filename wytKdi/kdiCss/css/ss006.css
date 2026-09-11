@@ -1,0 +1,30 @@
+li#coca {
+	background-color: #f51218;
+	margin: 10px; /* 行の高さを指定する */
+	height: 100px;
+	width: 500px;
+}
+
+li#pep {
+	background-color: #396cdd;
+	margin: 10px; /* 行の高さを指定する */
+	float: left;
+}
+
+li#kir {
+	background-color: #f8e630;
+	margin: 10px; /* 行の高さを指定する */;
+	float: left;
+}
+
+li#met {
+	background-color: #f8832b;
+	margin: 10px; /* 行の高さを指定する */
+	float: left;
+}
+
+li#dr {
+	background-color: #cb9332;
+	margin: 10px; /* 行の高さを指定する */
+	float: left;
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<SCRIPT language="JavaScript">
+	function Add1() {
+		document.fm1.C.value = eval(document.fm1.A.value)
+				+ eval(document.fm1.B.value);
+	}
+</SCRIPT>
+</head>
+
+<body>
+	<FORM name="fm">
+		<INPUT size="20" type="text" name="A">+ <INPUT size="20"
+			type="text" name="B"> <INPUT type="button" value="="
+			onclick="Add()"> <INPUT size="20" type="text" name="C">
+	</FORM>
+</body>

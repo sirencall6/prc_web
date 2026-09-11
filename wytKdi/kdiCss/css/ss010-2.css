@@ -1,0 +1,33 @@
+div#one {
+	background-color: #0000ff;
+	height: 100px;
+	width: 500px;
+	float: none;
+}
+
+div#two {
+	background-color: #ff0000;
+	height: 300px;
+	width: 200px;
+	float: left;
+}
+
+div#twotwo {
+	background-color: #ff3654;
+	float: left;
+	height: 300px;
+	width: 300px;
+}
+
+div#three {
+	background-color: #b7e718;
+	height: 80px;
+	width: 500px;
+	clear: both;
+	<!--
+	フロートしているボックスを解除
+	-->
+}
+<!--
+https://qiita.com/ritukiii/items/fdc63532d31cc1ed2c50
+-->

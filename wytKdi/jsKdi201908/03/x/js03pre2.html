@@ -1,0 +1,74 @@
+ <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="ja">
+<head>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+
+<script language="javascript">
+function Cal()
+{
+    // 入力したデータAB
+    inputValueA = document.calForm.a.value - 0;
+    inputValueB = document.calForm.b.value - 0;
+
+    // 4つの計算式
+    ans1 = ( ( inputValueA + inputValueB ) / 40 - 1 );
+    ans2 = ( ( ( inputValueA / 2 ) + inputValueB ) / 40 - 1 );
+    ans3 = ( ( inputValueA + inputValueB + 1 ) / 46 - 1 );
+    ans4 = ( ( ( inputValueA / 2 ) + inputValueB + 1 ) * 46 - 1 );
+
+    // 計算結果を出力
+    document.calForm.ans1.value = ans1;
+    document.calForm.ans2.value = ans2;
+    document.calForm.ans3.value = ans3;
+    document.calForm.ans4.value = ans4;
+}
+//-->
+</script>
+
+<title>サンプル</title>
+</head>
+
+<body>
+
+<form action="#" name="calForm">
+<table>
+ <tr>
+   <td>Aを入力してください</td>
+   <td><input type="text" name="a" value=""></td>
+ </tr>
+ <tr>
+   <td>Bを入力してください</td>
+   <td><input type="text" name="b" value=""></td>
+ </tr>
+</table>
+
+<input type="button" name="keisan" value="計算" onClick="Cal();">
+<input type="reset" name="reset" value="やり直し">
+
+<hr>
+
+<table>
+ <tr>
+   <td>結果1</td>
+   <td><input type="text" name="ans1" value=""></td>
+ </tr>
+ <tr>
+   <td>結果2</td>
+   <td><input type="text" name="ans2" value=""></td>
+ </tr>
+ <tr>
+   <td>結果3</td>
+   <td><input type="text" name="ans3" value=""></td>
+ </tr>
+ <tr>
+   <td>結果4</td>
+   <td><input type="text" name="ans4" value=""></td>
+ </tr>
+</table>
+</form>
+
+</body>
+</html>

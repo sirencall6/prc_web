@@ -1,0 +1,19 @@
+a:link {
+	color: #bce2e8;
+	text-decoration: none
+}
+
+a:visited {
+	color: #bce2e8;
+	text-decoration: none
+}
+
+a:hover {
+	color: #ff0000;
+	text-decoration: none
+}
+
+a:active {
+	color: #bce2e8;
+	text-decoration: none
+}

@@ -1,0 +1,29 @@
+div#blue {
+	background-color: #0000ff;
+	margin: 10px; /* 行の高さを指定する */
+	float: left;
+}
+
+div#red {
+	background-color: #ff0000;
+	margin: 10px; /* 行の高さを指定する */
+	float: left;
+}
+
+div#yellow {
+	background-color: #ffff00;
+	margin: 10px; /* 行の高さを指定する */;
+	float: left;
+}
+
+div#brown {
+	background-color: #a52a2a;
+	margin: 10px; /* 行の高さを指定する */
+	float: left;
+}
+
+div#pink {
+	background-color: #ffc0cb;
+	margin: 10px; /* 行の高さを指定する */
+	float: left;
+}

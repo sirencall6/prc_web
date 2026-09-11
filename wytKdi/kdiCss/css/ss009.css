@@ -1,0 +1,8 @@
+body {
+	/* 画像ファイルの指定 */
+	background-image: url('img/sozai02.jpg');
+	/* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+	background-attachment: fixed;
+	/* 背景画像が読み込まれる前に表示される背景のカラー */
+	background-color: #E6E6E6;
+}

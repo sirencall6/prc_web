@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>設問9 入力フォーム</title>
+<style>
+textarea {
+	width: 100%;
+	height: 100px;
+	resize: vertical;
+}
+</style>
+</head>
+
+<body>
+	<form action="criticalpoint6999d@docomo.ne.jp" method="post">
+		<div>
+			<p>テキスト入力欄</p>
+			<label><input type="text" name="text"></label>
+			<p>性別を選択してください。</p>
+			<!-- nameは同じものを設定することで択一の回答を求めることができる -->
+			<label for="radio-a"><input id="radio-a" type="radio"
+				name="radio1" value="男性" checked>男性</label> <br> <label
+				for="radio-b"><input id="radio-b" type="radio" name="radio1"
+				value="女性">女性</label>
+
+			<p>地域を選択してください</p>
+			<label for="area"> <select id="area" name="area">
+					<option value="kita">北海道・東北</option>
+					<option value="kanto">関東</option>
+					<option value="chubu">中部</option>
+					<option value="kinki">近畿</option>
+					<option value="chushikoku">中国・四国</option>
+					<option value="kyushu">九州</option>
+			</select>
+			</label>
+
+			<div>
+				<p>好きな学科を選択してください。</p>
+				<label for="check-a"><input id="check-a" type="checkbox"
+					name="gakka" value="国語">国語</label><br> <label for="check-b"><input
+					id="check-b" type="checkbox" name="gakka" value="英語">英語</label><br>
+				<label for="check-c"><input id="check-c" type="checkbox"
+					name="gakka" value="数学">数学</label><br>
+			</div>
+
+			<div>
+				<p>テキストを入力してください。</p>
+				<label> <textarea name="message-body" placeholder="テキストを入力"></textarea>
+					<input type="submit" value="送信する">
+				</label>
+
+			</div>
+		</div>
+	</form>
+</body>
+</html>
+
+
+<!-- form内のdiv -->
+<!-- labelの範囲 -->
+<!--  -->

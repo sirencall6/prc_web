@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type,Content-Script-Type"
+	content="text/html;charset=Shift_JIS"></meta>
+<!-- <meta http-equiv="Content-Script-Type" content="text/javascript"></meta> -->
+
+
+<title>js4 ラジオボタンからの推移</title>
+</head>
+
+<body>
+	<script type="text/javascript" src="js04.js"></script>
+	<p>
+		サイトを選択してください。<br /> <input id="radio-a" type="radio" name="site1"
+			value="Yahoo!Japan" onClick="kakunin(1)"><label for="radio-a">Yahoo!Japan</label><br /><input
+			id="radio-b" type="radio" name="site1" value="Google"
+			onClick="kakunin(2)"><label for="radio-b">Google</label><br>
+	</p>
+	<!-- name="site1" 同じnameにすることで選択が択一となる -->
+
+</body>
+</html>
