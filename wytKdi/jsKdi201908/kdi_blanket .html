@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js_blanket</title>
+
+  <!-- 外部CSSファイルの読み込み -->
+  <link rel="stylesheet" href="css/kdi_blanket.css">
+  <!-- 外部JavaScriptファイルの読み込み -->
+  <script src="js/kdi_blanket.js" defer></script>
+  <!-- 外部JavaScriptファイルの読み込み *mock -->
+  <!-- <script src="js/kdi_blanket_mock.js" defer></script> -->
+</head>
+<body>
+
+  <main>
+    <!-- 01.フォーム・ダイアログ表示サンプル -->
+    <form action="sousinsaki.html" method="POST" id="sample-form">
+      <div class="form-group">
+        <label for="text01">テキスト入力欄</label>
+        <input
+          type="text"
+          id="text01"
+          name="text1"
+          placeholder="テキストを入力してください"
+          autocomplete="on"
+          required
+        >
+      </div>
+
+      <button type="submit" id="submit-btn">送信する</button>
+    </form>
+  </main>
+
+</body>
+</html>
