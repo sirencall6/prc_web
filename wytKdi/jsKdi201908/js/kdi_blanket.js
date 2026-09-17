@@ -1,54 +1,55 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('sample-form');
-  const textInput = document.getElementById('text01');
-
-  form.addEventListener('submit', (event) => {
-    // 1. 通常のフォーム送信（ページ遷移）を一旦停止
-    event.preventDefault();
-
-    const inputValue = textInput.value.trim();
-
-    // 2. 空文字チェック（必要に応じて）
-    if (!inputValue) {
-      alert('テキストを入力してください。');
-      textInput.focus();
-      return;
-    }
-
-    // 3. 入力内容をダイアログ表示
-    alert(`入力内容:\n${inputValue}`);
-
-    // もしダイアログ確認後にそのまま送信（ページ遷移）したい場合は下記を実行
-    // form.submit();
-  });
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
+  // --------------------------------------------------
+  // 1. フォーム送信制御（入力チェック → ダイアログ → 送信）
+  // --------------------------------------------------
   const form = document.getElementById('sample-form');
   const textInput = document.getElementById('text01');
   const submitBtn = document.getElementById('submit-btn');
 
-  form.addEventListener('submit', (event) => {
-    // 画面遷移を止めずにダイアログを挟む例
-    // ※非同期通信(Fetch/Ajax)ではなく通常送信の場合は、この後ページ遷移します
+  if (form && textInput && submitBtn) {
+    form.addEventListener('submit', (event) => {
+      // 一旦通常の即時送信を止めて、前処理を行う
+      event.preventDefault();
 
-    // 1. ボタンとテキスト入力欄を即座に入力不可にする
-    submitBtn.disabled = true;
-    textInput.disabled = true;
+      const inputValue = textInput.value.trim();
 
-    // 視覚的フィードバック（ボタン文言の変更）
-    submitBtn.textContent = '送信中...';
+      // 空文字チェック
+      if (!inputValue) {
+        alert('テキストを入力してください。');
+        textInput.focus();
+        return;
+      }
 
-    // 2. 例: 2〜3秒後に再度入力を許可したい場合（画面遷移しない処理などの保険）
-    /*
-    setTimeout(() => {
-      submitBtn.disabled = false;
-      textInput.disabled = false;
-      submitBtn.textContent = '送信する';
-    }, 3000);
-    */
-  });
+      // 確認ダイアログ（OKなら true、キャンセルなら false）
+      const isConfirmed = confirm(`以下の内容で送信しますか？\n${inputValue}`);
+      if (!isConfirmed) {
+        return; // キャンセルの場合はここで中断
+      }
+
+      // 二重送信防止（※inputは無効化せず、ボタンのみ無効化する）
+      submitBtn.disabled = true;
+      submitBtn.textContent = '送信中...';
+
+      // プログラムから明示的に送信を実行（画面遷移）
+      form.submit();
+    });
+  }
+
+  // --------------------------------------------------
+  // 2. 外部リンク遷移確認処理
+  // --------------------------------------------------
+  const confirmLink = document.getElementById('confirm-link');
+
+  if (confirmLink) {
+    confirmLink.addEventListener('click', (event) => {
+      const proceed = confirm('外部サイト（Google）へ移動します。よろしいですか？');
+
+      // キャンセル時はページ遷移（デフォルト挙動）を中断
+      if (!proceed) {
+        event.preventDefault();
+      }
+    });
+  }
 });
