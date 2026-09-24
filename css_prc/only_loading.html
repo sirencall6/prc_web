@@ -1,0 +1,244 @@
+<h1>CSSで作るローディングアニメーション</h1>
+<!--
+CSSだけで作れる“ちょっと楽しい”ローディングアニメーション11選【初心者向けまとめ】 #ローディング画面 - Qiita
+https://qiita.com/suzukielecs/items/be3db4658e22ff5ca17f
+ -->
+
+
+<!-- 1. シンプルなスピナー（基本形） -->
+
+<h2>1. シンプルなスピナー（基本形）</h2>
+
+<h3>ポイント</h3>
+
+border-top-color だけ色を変えることで回転が見えるようにしています。<br>
+animation: spin 1s linear infinite で無限に回り続けます。<br>
+
+<div class="loader"></div>
+<p>
+    <style>
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #ddd;
+            border-top-color: #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</p>
+
+
+<h2>2.円形プログレス（グラデーション）</h2>
+
+<!-- 1.のスピナーにグラデーションを追加したような、滑らかな円形ローディングです。 -->
+1.のスピナーにグラデーションを追加したような、滑らかな円形ローディングです。
+
+<h3>ポイント</h3>
+<!-- conic-gradientを使うことでモダンな円形グラデーションを実現し、
+rotate アニメーションで全体を回転させています。
+::before で内側の白い円を作り重ねることでリング状に見せています。
+-->
+
+<div class="spinner-gradient"></div>
+
+<style>
+    .spinner-gradient {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: conic-gradient(from 0deg,
+                transparent 0deg,
+                #3498db 360deg);
+        animation: rotate 1s linear infinite;
+        position: relative;
+    }
+
+    .spinner-gradient::before {
+        content: '';
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        background-color: white;
+        border-radius: 50%;
+    }
+
+    @keyframes rotate {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<h2>3. 二重リングスピナー</h2>
+<!-- 2つのリングが逆方向に回転するアニメーションです。 -->
+2つのリングが逆方向に回転するアニメーションです。
+
+<h3>ポイント</h3>
+<!-- 2つの円を重ね、spin と spin-reverse の2種類のアニメーション
+を適用しています。
+回転方向と速度を変えることで、視覚的に面白い動きになり立体感が出ます。
+それぞれのリングに異なる色とサイズを設定しています。
+-->
+
+<div class="double-ring">
+    <div class="ring-outer"></div>
+    <div class="ring-inner"></div>
+</div>
+
+<style>
+    .double-ring {
+        position: relative;
+        width: 60px;
+        height: 60px;
+    }
+
+    .ring-outer,
+    .ring-inner {
+        position: absolute;
+        border-radius: 50%;
+        border: 4px solid transparent;
+    }
+
+    .ring-outer {
+        width: 60px;
+        height: 60px;
+        border-top-color: #3498db;
+        animation: spin 1s linear infinite;
+    }
+
+    .ring-inner {
+        width: 40px;
+        height: 40px;
+        top: 10px;
+        left: 10px;
+        border-bottom-color: #e74c3c;
+        animation: spin-reverse 0.75s linear infinite;
+    }
+
+    @keyframes spin {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes spin-reverse {
+        100% {
+            transform: rotate(-360deg);
+        }
+    }
+</style>
+
+<h2>4. バー型ローディング（プログレス風）</h2>
+<!-- シンプルで場所を取らないバー型のアニメーションです。 -->
+シンプルで場所を取らないバー型のアニメーションです。
+
+<h3>ポイント</h3>
+
+<!--
+バーが translateX を使って左右に移動します。
+親要素にoverflow: hiddenを設定することで、バーが枠からはみ出さずに
+左右へ移動します。
+-->
+<div class="bar-container">
+    <div class="bar"></div>
+</div>
+
+<style>
+    .bar-container {
+        width: 200px;
+        height: 4px;
+        background-color: #f3f3f3;
+        border-radius: 2px;
+        overflow: hidden;
+    }
+
+    .bar {
+        width: 50%;
+        height: 100%;
+        background-color: #3498db;
+        animation: slide 1.5s ease-in-out infinite;
+    }
+
+    @keyframes slide {
+        0% {
+            transform: translateX(-100%);
+        }
+
+        100% {
+            transform: translateX(300%);
+            /*必要に応じて値を調整してください*/
+        }
+    }
+</style>
+
+
+<h2>5. スライドバー（左右交互）</h2>
+<!-- 2本のバーが交互に動くアニメーションです。 -->
+2本のバーが交互に動くアニメーションです。
+<h3>ポイント</h3>
+
+上下2つのバーに別々の @keyframes を割り当て、片方は右へ、もう片方は左へ動くように設定しています。
+左右に動くバーが交互に動くことで、リズム感のあるアニメーションになります。
+
+<div class="slide-bars">
+    <div class="slide-bar bar-1"></div>
+    <div class="slide-bar bar-2"></div>
+</div>
+
+<style>
+    .slide-bars {
+        width: 100px;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .slide-bar {
+        width: 100%;
+        height: 10px;
+        background-color: #3498db;
+        border-radius: 5px;
+    }
+
+    .bar-1 {
+        animation: slide-left 1.5s ease-in-out infinite;
+    }
+
+    .bar-2 {
+        animation: slide-right 1.5s ease-in-out infinite;
+    }
+
+    @keyframes slide-left {
+
+        0%,
+        100% {
+            transform: translateX(50px);
+        }
+
+        50% {
+            transform: translateX(100px);
+        }
+    }
+
+    @keyframes slide-right {
+
+        0%,
+        100% {
+            transform: translateX(50px);
+        }
+
+        50% {
+            transform: translateX(0px);
+        }
+    }
+</style>
