@@ -10,9 +10,10 @@ https://qiita.com/suzukielecs/items/be3db4658e22ff5ca17f
 <h2>1. シンプルなスピナー（基本形）</h2>
 
 <h3>ポイント</h3>
-
+<p>
 border-top-color だけ色を変えることで回転が見えるようにしています。<br>
 animation: spin 1s linear infinite で無限に回り続けます。<br>
+</p>
 
 <div class="loader"></div>
 <p>
@@ -41,10 +42,11 @@ animation: spin 1s linear infinite で無限に回り続けます。<br>
 1.のスピナーにグラデーションを追加したような、滑らかな円形ローディングです。
 
 <h3>ポイント</h3>
-<!-- conic-gradientを使うことでモダンな円形グラデーションを実現し、
+<p>
+conic-gradientを使うことでモダンな円形グラデーションを実現し、
 rotate アニメーションで全体を回転させています。
 ::before で内側の白い円を作り重ねることでリング状に見せています。
--->
+</p>
 
 <div class="spinner-gradient"></div>
 
@@ -83,11 +85,12 @@ rotate アニメーションで全体を回転させています。
 2つのリングが逆方向に回転するアニメーションです。
 
 <h3>ポイント</h3>
-<!-- 2つの円を重ね、spin と spin-reverse の2種類のアニメーション
+<p>
+2つの円を重ね、spin と spin-reverse の2種類のアニメーション
 を適用しています。
 回転方向と速度を変えることで、視覚的に面白い動きになり立体感が出ます。
 それぞれのリングに異なる色とサイズを設定しています。
--->
+</p>
 
 <div class="double-ring">
     <div class="ring-outer"></div>
@@ -142,12 +145,12 @@ rotate アニメーションで全体を回転させています。
 シンプルで場所を取らないバー型のアニメーションです。
 
 <h3>ポイント</h3>
-
-<!--
+<p>
 バーが translateX を使って左右に移動します。
 親要素にoverflow: hiddenを設定することで、バーが枠からはみ出さずに
 左右へ移動します。
--->
+</p>
+
 <div class="bar-container">
     <div class="bar"></div>
 </div>
@@ -185,10 +188,10 @@ rotate アニメーションで全体を回転させています。
 <!-- 2本のバーが交互に動くアニメーションです。 -->
 2本のバーが交互に動くアニメーションです。
 <h3>ポイント</h3>
-
+<p>
 上下2つのバーに別々の @keyframes を割り当て、片方は右へ、もう片方は左へ動くように設定しています。
 左右に動くバーが交互に動くことで、リズム感のあるアニメーションになります。
-
+</p>
 <div class="slide-bars">
     <div class="slide-bar bar-1"></div>
     <div class="slide-bar bar-2"></div>
@@ -242,3 +245,55 @@ rotate アニメーションで全体を回転させています。
         }
     }
 </style>
+
+<h2>6. 3点ドット（バウンス）</h2>
+チャットアプリなどでよく見かける「入力中」を表現しているようなアニメーションです。
+
+
+<h3>ポイント</h3>
+<p>
+nth-child で開始タイミングをずらし、translateY を使って上下に
+バウンドさせています。
+animation-delayを使って各ドットの動きをずらすことで、波打つような
+自然な動きになります。また、負の値にすることでアニメーションを途中から
+開始させています。
+</p>
+
+<div class="dots-container">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</div>
+
+<style>
+.dots-container {
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  background-color: #3498db;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out;
+}
+
+.dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+}
+</style>
+
